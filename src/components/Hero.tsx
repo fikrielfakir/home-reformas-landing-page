@@ -1,5 +1,5 @@
 import heroImage from "../assets/hero-construction.jpg";
-import logoImage from "@assets/ChatGPT_Image_Jan_7,_2026,_10_36_49_AM_1767778757733.png";
+import logoImage from "@/assets/logo.png";
 
 const Hero = () => {
   return (
@@ -21,7 +21,7 @@ const Hero = () => {
             <img 
               src={logoImage} 
               alt="Home Reformas Logo" 
-              className="h-28 md:h-36 w-auto object-contain"
+              className="h-28 md:h-36 w-auto object-contain logo"
             />
           </div>
         </div>
