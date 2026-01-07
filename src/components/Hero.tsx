@@ -14,14 +14,14 @@ const Hero = () => {
       <div className="absolute inset-0 bg-background/75" />
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-6 text-center" style={{ position: "relative", bottom: "59px" }}>
         {/* Logo Integration */}
-        <div className="opacity-0 animate-fade-in-up mb-8 flex justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-2xl inline-block transform hover:scale-105 transition-transform duration-500">
+        <div className="opacity-0 animate-fade-in-up mb-12">
+          <div className="z-8 py-4 rounded-b-3xl shadow-2xl flex items-center justify-center -mt-24s">
             <img 
               src={logoImage} 
               alt="Home Reformas Logo" 
-              className="h-28 md:h-36 w-auto object-contain logo"
+              className="h-20 md:h-24 w-auto object-contain"
             />
           </div>
         </div>
