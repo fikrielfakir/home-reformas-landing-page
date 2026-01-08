@@ -1,0 +1,426 @@
+TurboSMTP Public APIs
+ 2.0.0-oas3 
+OAS 3.1
+./turbo-smtp.yaml
+This document describes all public turboSMTP V2 API and offers endpoints Descriptions, Parameters, Requests, Responses and Samples of usage.
+
+Click here to view the previous version of turboSMTP Public API Version 1.0
+
+Useful Links for Developers
+Email SDKs for Developers
+Webhooks Reference
+Email API for Developers
+Security
+For the most part (and where not otherwise explicit) turboSMTP’s API requires Authorization.
+
+Authorization to access a user’s resource is granted to clients provided they set authentication headers into their request, valued with the proper values issued by turboSMTP servers.
+
+* Authorization via ConsumerKey/ConsumerSecret
+This type of authorization consists of a pair of headers, named consumerKey and consumerSecret that are created and granted to the end user to be used in a permanent way (unless they´re deleted of course). This kind of authentication is intended to provide access to endpoints features without the need of providing the user the account details (email address + password).
+
+consumerKey: Consumer Key Granted.
+
+consumerSecret: Consumer Secret Granted.
+
+(Use /consumerKeys/create create a consumer key/secret pair).
+
+* Authorization via Authentication Key
+The authentication key is user-based and it is issued by turboSMTP servers upon successful user’s email address + password challenge, performed by means of appropriate request.
+
+Authorization: Authorization_Key
+
+(Use /authentication/authorize to obtain an API Key)
+
+Data Interchange Format
+For the most part (and where not otherwise explicit) turboSMTP’s API uses JSON as the data format of choice when it comes to request and response bodies.
+
+Contact the developer
+MIT
+Servers
+
+https://pro.api.serversmtp.com/api/v2 - turboSMTP Production Server
+
+Authorize
+mail
+Send email message
+
+
+
+POST
+/mail/send
+Send email message
+
+
+authentication
+Authentication
+
+
+
+POST
+/authorize
+Login - Get API Key
+
+
+POST
+/deauthorize
+Logout - Revoke API Key
+
+
+
+PUT
+/change-password
+Change turboSMTP password
+
+
+
+POST
+/forgot-password
+Forgot Password - Use in case you don´t remember your turboSMTP password
+
+
+GET
+/forgot-password
+Forgot Password - Verify if Secret Passord Recovery token is valid.
+
+
+
+PUT
+/forgot-password
+Forgot Password - change password
+
+suppressions
+Suppressions
+
+
+
+POST
+/suppressions/import
+Import Suppressions
+
+
+
+GET
+/suppressions
+Get Suppressions Data
+
+
+
+POST
+/suppressions
+Filter suppressions
+
+
+
+GET
+/suppressions/csv
+Export Suppressions data in CSV file
+
+
+
+POST
+/suppressions/csv
+Export filtered suppressions
+
+
+
+POST
+/suppressions/bulk_delete
+Bulk delete suppressions
+
+
+
+POST
+/suppressions/delete
+Delete suppressions
+
+
+meta
+Meta
+
+
+
+GET
+/meta/countries
+Get countries
+
+
+
+GET
+/meta/state/{isoCode}
+Get states by country
+
+
+billing
+Billing
+
+
+
+POST
+/billing/buy_emailvalidation_credits
+Buy Email Validator Credits
+
+
+email-validator
+Email Validator
+
+
+
+GET
+/emailvalidation/subscription
+Get Email Validation subscription
+
+
+
+POST
+/emailvalidation/upload
+Upload file for email validation
+
+
+
+GET
+/emailvalidation/lists
+Get Email validation lists information
+
+
+
+GET
+/emailvalidation/lists/{Id}
+Get Email validation list details
+
+
+
+DELETE
+/emailvalidation/lists/{Id}
+Delete email validation list
+
+
+
+POST
+/emailvalidation/lists/{Id}/validate
+Validate list in Email Validator
+
+
+
+GET
+/emailvalidation/lists/{Id}/emails
+Get Validated Emails by Email Validation List
+
+
+
+GET
+/emailvalidation/lists/{Id}/emails/{emailId}
+Get Email validation data by email ID.
+
+
+
+GET
+/emailvalidation/lists/{Id}/csv
+Export Validated Emails by Email Validation List to CSV File
+
+
+
+POST
+/emailvalidation/validateEmail
+Validate single email address
+
+
+subaccounts
+Subaccounts
+
+
+
+GET
+/subaccounts/list
+Get Subaccounts lists information
+
+
+
+GET
+/subaccounts/email-exists
+Check if account email exists in turboSMTP
+
+
+
+POST
+/subaccounts
+Create Subaccount.
+
+
+
+GET
+/subaccounts/{Id}
+Get sub account details
+
+
+
+PATCH
+/subaccounts/{Id}
+Update sub account details
+
+
+
+POST
+/subaccounts/{Id}/updatesubaccountsmtplimit
+Set subaccount smtp limit
+
+
+
+POST
+/subaccounts/{Id}/updatesubaccountstatus
+Set subaccount status
+
+
+
+POST
+/subaccounts/authorize
+Login to a subaccount
+
+
+
+GET
+/subaccounts/{Id}/active-plan
+Get subaccount active plan.
+
+
+
+POST
+/subaccounts/logo
+Upload agency logo
+
+
+
+GET
+/subaccounts/logo
+Get agency logo
+
+
+
+DELETE
+/subaccounts/logo
+Delete agency logo
+
+
+
+GET
+/subaccounts/agency
+Update Agency details
+
+
+
+PATCH
+/subaccounts/agency
+Update Agency details
+
+
+alerts
+Alerts
+
+
+
+GET
+/tools/alerts
+Get Alerts Notifications Information
+
+
+
+POST
+/tools/alerts
+Create new Alert Notification
+
+
+
+PATCH
+/tools/alerts/{Id}
+Update Alert Notification
+
+
+
+GET
+/tools/alerts/{Id}
+Get Alert Notification
+
+
+
+DELETE
+/tools/alerts/{Id}
+Delete Alert Notification
+
+
+analytics
+Analytics
+
+
+
+GET
+/analytics
+Get Analytics Data
+
+
+
+GET
+/analytics/csv
+Export Analytics data in CSV file
+
+
+
+GET
+/analytics/{Id}
+Get Analytics Single Item by ID
+
+
+consumerkey
+Api Keys
+
+
+
+GET
+/user/consumerKeys
+Get Consumer Keys list
+
+
+
+POST
+/user/consumerKeys
+Create Consumer Key
+
+
+
+DELETE
+/user/consumerKeys/{consumerKey}
+Delete Consumer Key
+
+
+
+Schemas
+AuthenticationLoginRequestBodyExpand allany
+AuthenticationLoginSucessResponsetBodyExpand allany
+ChangePasswordRequestBodyExpand allany
+SendSecretTokenResetPasswordRequestBodyExpand allany
+UpdateResetPasswordRequestBodyExpand allany
+UserDetailsExpand allany
+ConsumerKeyCreateRequestBodyExpand allany
+ConsumerKeyCreateResponseBodyExpand allany
+ConsumerKeyExpand allany
+ConsumerKeyListSucessResponsetBodyExpand allany
+EmailRequestBodyExpand allany
+SendSucessResponsetBodyExpand allany
+SendBadRequestResponseBodyExpand allany
+SendUnauthorizedResponseBodyExpand allany
+SubaccountExpand allany
+SubaccountCreateRequestExpand allany
+SubaccountUpdateRequestExpand allany
+SubAccountListSucessResponsetBodyExpand allany
+SubaccountActivePlanExpand allany
+AgencySettingsExpand allany
+EmailValidatorSubscriptionExpand allany
+EmailValidatorListExpand allany
+EmailValidatorSucessResponsetBodyExpand allany
+EmailValidationUploadResponseExpand allany
+EmailValidatorMailDetailsExpand allany
+EmailValidatorValidatedMailsResultsExpand allany
+EmailAddressRequestBodyExpand allany
+CommonSuccessResponseBodyExpand allany
+CommonMessageResponseBodyExpand allany
+CommonBadRequestResponseBodyExpand allany
+EmailCollapse allobject
+emailExpand allstringemail

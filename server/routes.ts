@@ -7,41 +7,37 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/contact", async (req, res) => {
     try {
       const { name, email, message } = req.body;
-      
-      const gmailUser = process.env.GMAIL_USER || process.env.VITE_GMAIL_USER;
-      const gmailPass = process.env.GMAIL_APP_PASSWORD || process.env.VITE_GMAIL_APP_PASSWORD;
+      const consumerKey = process.env.SMTP_USER;
+      const consumerSecret = process.env.SMTP_PASS;
 
-      if (!gmailUser || !gmailPass) {
-        console.error("Missing GMAIL_USER or GMAIL_APP_PASSWORD secrets");
+      if (!consumerKey || !consumerSecret) {
+        console.error("Missing SMTP_USER or SMTP_PASS secrets");
         return res.status(500).json({ message: "Error de configuración en el servidor" });
       }
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: gmailUser,
-          pass: gmailPass,
+      const response = await fetch("https://pro.api.serversmtp.com/api/v2/mail/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "consumerKey": consumerKey,
+          "consumerSecret": consumerSecret
         },
+        body: JSON.stringify({
+          from: "Homereformas24@gmail.com",
+          to: "Homereformas24@gmail.com",
+          subject: `Nuevo mensaje de contacto de ${name}`,
+          content: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
+          html_content: `<h3>Nuevo mensaje de contacto</h3><p><strong>Nombre:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Mensaje:</strong></p><p>${message}</p>`
+        })
       });
 
-      const mailOptions = {
-        from: gmailUser,
-        to: "Homereformas24@gmail.com",
-        subject: `Nuevo mensaje de contacto de ${name}`,
-        text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
-        replyTo: email,
-        attachments: [
-          {
-            filename: 'logo.png',
-            path: path.join(__dirname, '..', 'attached_assets', 'ChatGPT_Image_Jan_7,_2026,_10_36_49_AM_1767778757733.png'),
-            cid: 'logo' // optional cid to use in html body
-          }
-        ]
-      };
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("TurboSMTP error:", errorData);
+        throw new Error("Failed to send email via TurboSMTP");
+      }
 
-      await transporter.sendMail(mailOptions);
-      
-      console.log(`Email sent from: ${name} (${email})`);
+      console.log(`Email sent from: ${name} (${email}) via TurboSMTP`);
       res.json({ message: "Mensaje enviado correctamente" });
     } catch (error) {
       console.error("Error sending email:", error);

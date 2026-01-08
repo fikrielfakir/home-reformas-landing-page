@@ -35,15 +35,14 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Usando Formspree como alternativa sin servidor SMTP
-      const response = await fetch("https://formspree.io/f/Homereformas24@gmail.com", {
+      // Usando el endpoint local que integra TurboSMTP
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: formData.message,
-          _subject: "Nuevo mensaje de contacto - Home Reformas"
+          message: formData.message
         }),
       });
 
