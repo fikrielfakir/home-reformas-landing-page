@@ -3,7 +3,6 @@ import Services from "../components/Services";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
-import ServiceArea from "../components/ServiceArea";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -15,7 +14,6 @@ const Index = () => {
       <WhyChooseUs />
       <Projects />
       <Testimonials />
-      <ServiceArea />
       <Contact />
       <Footer />
     </main>
