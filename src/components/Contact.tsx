@@ -35,10 +35,16 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch("/api/contact", {
+      // Usando Formspree como alternativa sin servidor SMTP
+      const response = await fetch("https://formspree.io/f/Homereformas24@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: "Nuevo mensaje de contacto - Home Reformas"
+        }),
       });
 
       if (!response.ok) throw new Error("Failed to send message");
