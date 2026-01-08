@@ -38,8 +38,8 @@ const Hero = () => {
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         
-        {/* Dark Overlay - Lighter for Light Mode */}
-        <div className="absolute inset-0 bg-white/40" />
+        {/* Dark Overlay - Darker for Light Text Visibility */}
+        <div className="absolute inset-0 bg-black/60" />
         
         {/* Content */}
         <div className="hero-content relative z-10 container mx-auto px-6 text-center" style={{ position: "relative", bottom: "60px" }}>
@@ -56,19 +56,19 @@ const Hero = () => {
           
           {/* Top Label */}
           <div className="opacity-0 animate-fade-in-up animation-delay-100">
-            <span className="inline-block px-4 py-2 text-sm font-body font-medium tracking-[0.3em] text-primary border border-primary/30 rounded-full mb-8">
+            <span className="inline-block px-4 py-2 text-sm font-body font-medium tracking-[0.3em] text-white border border-white/30 rounded-full mb-8">
               HOME REFORMAS
             </span>
           </div>
           
           {/* Main Headline */}
-          <h1 className="opacity-0 animate-fade-in-up animation-delay-200 text-5xl md:text-7xl lg:text-8xl font-heading text-foreground leading-tight mb-6">
+          <h1 className="opacity-0 animate-fade-in-up animation-delay-200 text-5xl md:text-7xl lg:text-8xl font-heading text-white leading-tight mb-6">
             Construcción y reformas<br />
             <span className="text-gradient-gold">integrales</span>
           </h1>
           
           {/* Subtitle */}
-          <p className="opacity-0 animate-fade-in-up animation-delay-400 text-lg md:text-xl text-muted-foreground font-body font-light max-w-2xl mx-auto mb-10">
+          <p className="opacity-0 animate-fade-in-up animation-delay-400 text-lg md:text-xl text-gray-200 font-body font-light max-w-2xl mx-auto mb-10">
             Calidad, confianza y resultados profesionales para tu hogar
           </p>
           
@@ -83,7 +83,7 @@ const Hero = () => {
           </div>
           
           {/* Contact Information */}
-          <div className="opacity-0 animate-fade-in-up animation-delay-600 mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-muted-foreground">
+          <div className="opacity-0 animate-fade-in-up animation-delay-600 mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-300">
             <a 
               href="mailto:Homereformas24@gmail.com" 
               className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
@@ -92,7 +92,7 @@ const Hero = () => {
                 <rect width="20" height="16" x="2" y="4" rx="2"/>
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
               </svg>
-              <span className="font-body text-sm">Homereformas24@gmail.com</span>
+              <span className="font-body text-sm text-gray-300">Homereformas24@gmail.com</span>
             </a>
             <a 
               href="https://wa.me/34642385299" 
@@ -103,7 +103,7 @@ const Hero = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
-              <span className="font-body text-sm">+34 642 385 299</span>
+              <span className="font-body text-sm text-gray-300">+34 642 385 299</span>
             </a>
           </div>
         </div>
