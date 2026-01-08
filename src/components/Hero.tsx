@@ -46,7 +46,7 @@ const Hero = () => {
         <div className="hero-content relative z-10 container mx-auto px-6 text-center" style={{ position: "relative", bottom: "60px" }}>
           {/* Logo Integration */}
           <div className="opacity-0 animate-fade-in-up mb-12">
-            <div className="z-8 py-4 rounded-b-3xl shadow-2xl flex items-center justify-center -mt-24s">
+            <div className="z-8 py-4 rounded-b-3xl flex items-center justify-center -mt-24s">
               <img 
                 src={logoImage} 
                 alt="Home Reformas Logo" 
