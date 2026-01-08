@@ -21,9 +21,20 @@ const Hero = () => {
       </style>
       
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/attached_assets/generated_videos/modern_home_construction_and_renovation..mp4" type="video/mp4" />
+        </video>
+        
+        {/* Background Image Fallback (if video fails to load) */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         
