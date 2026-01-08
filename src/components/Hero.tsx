@@ -1,5 +1,5 @@
 import heroImage from "../assets/hero-construction.jpg";
-import logoImage from "@/assets/logo.png";
+import logoImage from "../assets/logo.png";
 
 const Hero = () => {
   return (
