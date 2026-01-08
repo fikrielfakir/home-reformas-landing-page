@@ -38,8 +38,9 @@ const Hero = () => {
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         
-        {/* Dark Overlay - Darker for Light Text Visibility */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Orange Overlay */}
+        <div className="absolute inset-0 bg-primary/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-black/40" />
         
         {/* Content */}
         <div className="hero-content relative z-10 container mx-auto px-6 text-center" style={{ position: "relative", bottom: "60px" }}>
