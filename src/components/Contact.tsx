@@ -80,7 +80,7 @@ const Contact = () => {
         
         <div className="max-w-2xl mx-auto">
           {/* Contact Info */}
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mb-8">
             <a 
               href="mailto:Homereformas24@gmail.com" 
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 font-body"
@@ -95,6 +95,28 @@ const Contact = () => {
               <Phone className="w-5 h-5 text-primary" />
               <span>+34 642 385 299</span>
             </a>
+          </div>
+
+          <div className="flex flex-col items-center gap-4 mb-12 text-center">
+            <div className="flex items-center gap-3 text-muted-foreground font-body">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Castillo de gebara 8 2P DR 01007, Vitoria-Gasteiz, Álava</span>
+            </div>
+            
+            <div className="w-full h-[400px] rounded-sm overflow-hidden border border-border">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2925.340057077366!2d-2.678486!3d42.8458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc26665c56c2d%3A0x7d00201086a9f5d!2sC.%20Castillo%20de%20Guevara%2C%208%2C%2001007%20Vitoria-Gasteiz%2C%20%C3%81lava%2C%20Spain!5e0!3m2!1sen!2ses!4v1715100000000!5m2!1sen!2ses" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
 
           {/* WhatsApp Button */}
