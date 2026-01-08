@@ -37,3 +37,9 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+SMTP_USER = "729c2b97366e89854b2c"
+SMTP_PASS = "7any1dhESPeCHTvKifwV"
