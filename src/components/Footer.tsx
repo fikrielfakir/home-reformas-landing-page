@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className="pt-8 border-t border-border/50">
           <p className="text-center text-xs text-muted-foreground font-body">
-            © {new Date().getFullYear()} Home Reformas – Todos los derechos reservados
+            © {new Date().getFullYear()} HECTOR VALENTIN BRITEZ ORUE Todos los derechos reservados
           </p>
         </div>
       </div>
